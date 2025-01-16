@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRE Flashcards</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .flashcard {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0;
+            background: #fdfdfd;
+        }
+        .flashcard h2 {
+            margin: 0;
+            font-size: 1.5em;
+            color: #333;
+        }
+        .flashcard p {
+            margin: 5px 0 0;
+            color: #666;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background: #007bff;
+            color: white;
+            padding: 10px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>GRE Flashcards</h1>
+        {% if shuffled %}
+        <p>Flashcards shuffled!</p>
+        {% endif %}
+        {% for vocab in vocab_list %}
+        <div class="flashcard">
+            <h2>{{ vocab.word }}</h2>
+            <p>{{ vocab.definition }}</p>
+        </div>
+        {% endfor %}
+        <form method="post">
+            <button type="submit" name="shuffle" class="btn">Shuffle Flashcards</button>
+        </form>
+    </div>
+</body>
+</html>
